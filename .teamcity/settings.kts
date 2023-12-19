@@ -1,17 +1,16 @@
+package _Self.buildTypes
+
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 
-version = "2023.11"
+object TestBuild : BuildType({
+    name = "TestBuild"
 
-project {
-  buildType(HelloWorld)
-}
-
-object HelloWorld: BuildType({
-    name = "Hello world"
     steps {
         script {
-            scriptContent = "echo 'Hello world!'"
+            name = "TestStep"
+            id = "TestStep"
+            scriptContent = """echo "Hello Test""""
         }
     }
 })
